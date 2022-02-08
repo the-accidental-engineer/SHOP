@@ -1,0 +1,1460 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/provider/src/provider.dart', 'packages/shopping_app/providers/orders.dart', 'packages/flutter/src/widgets/safe_area.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/shopping_app/widgets/order_item.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/shopping_app/providers/auth.dart', 'packages/shopping_app/providers/products.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/widgets/async.dart', 'packages/flutter/src/material/refresh_indicator.dart', 'packages/provider/src/selector.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/shopping_app/widgets/user_product_item.dart'], (function load__packages__shopping_app__screens__orders_screen_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__provider__src__provider$46dart, packages__shopping_app__providers__orders$46dart, packages__flutter__src__widgets__safe_area$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__shopping_app__widgets__order_item$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__shopping_app__providers__auth$46dart, packages__shopping_app__providers__products$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__widgets__async$46dart, packages__flutter__src__material__refresh_indicator$46dart, packages__provider__src__selector$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__shopping_app__widgets__user_product_item$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const provider = packages__provider__src__provider$46dart.src__provider;
+  const orders = packages__shopping_app__providers__orders$46dart.providers__orders;
+  const safe_area = packages__flutter__src__widgets__safe_area$46dart.src__widgets__safe_area;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const drawer = packages__flutter__src__material__icon_button$46dart.src__material__drawer;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const order_item = packages__shopping_app__widgets__order_item$46dart.widgets__order_item;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const auth = packages__shopping_app__providers__auth$46dart.providers__auth;
+  const products = packages__shopping_app__providers__products$46dart.providers__products;
+  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
+  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const refresh_indicator = packages__flutter__src__material__refresh_indicator$46dart.src__material__refresh_indicator;
+  const consumer = packages__provider__src__selector$46dart.src__consumer;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const user_product_item = packages__shopping_app__widgets__user_product_item$46dart.widgets__user_product_item;
+  var orders_screen = Object.create(dart.library);
+  var app_drawer = Object.create(dart.library);
+  var user_products_screen = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    dynamicToFutureOfNull: () => (T.dynamicToFutureOfNull = dart.constFn(dart.fnType(T.FutureOfNull(), [dart.dynamic])))(),
+    BuildContextAndintToOrderItem: () => (T.BuildContextAndintToOrderItem = dart.constFn(dart.fnType(order_item.OrderItem, [framework.BuildContext, core.int])))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    FutureBuilderOfvoid: () => (T.FutureBuilderOfvoid = dart.constFn(async$.FutureBuilder$(dart.void)))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
+    ConsumerOfProducts: () => (T.ConsumerOfProducts = dart.constFn(consumer.Consumer$(products.Products)))(),
+    BuildContextAndintToColumn: () => (T.BuildContextAndintToColumn = dart.constFn(dart.fnType(basic.Column, [framework.BuildContext, core.int])))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAndProductsAndWidgetNToPadding: () => (T.BuildContextAndProductsAndWidgetNToPadding = dart.constFn(dart.fnType(basic.Padding, [framework.BuildContext, products.Products, T.WidgetN()])))(),
+    AsyncSnapshotOfObjectN: () => (T.AsyncSnapshotOfObjectN = dart.constFn(async$.AsyncSnapshot$(T.ObjectN())))(),
+    BuildContextAndAsyncSnapshotOfObjectNToWidget: () => (T.BuildContextAndAsyncSnapshotOfObjectNToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.AsyncSnapshotOfObjectN()])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([], widget_inspector._Location);
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11], widget_inspector._Location);
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "order",
+        [_Location_column]: 68,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 42,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 17,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 17,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18], widget_inspector._Location);
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "drawer",
+        [_Location_column]: 9,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/orders_screen.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 18,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 18,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 18,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "automaticallyImplyLeading",
+        [_Location_column]: 13,
+        [_Location_line]: 19,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 17,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36], widget_inspector._Location);
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 22,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43, C[44] || CT.C44], widget_inspector._Location);
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[41] || CT.C41,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.constList([C[48] || CT.C48], widget_inspector._Location);
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([C[51] || CT.C51], widget_inspector._Location);
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55, C[56] || CT.C56], widget_inspector._Location);
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60], widget_inspector._Location);
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63], widget_inspector._Location);
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.constList([C[66] || CT.C66, C[67] || CT.C67, C[68] || CT.C68], widget_inspector._Location);
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[65] || CT.C65,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.constList([C[72] || CT.C72], widget_inspector._Location);
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[71] || CT.C71,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.constList([C[75] || CT.C75], widget_inspector._Location);
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[74] || CT.C74,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.constList([C[78] || CT.C78, C[79] || CT.C79, C[80] || CT.C80], widget_inspector._Location);
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[77] || CT.C77,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 16,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83], widget_inspector._Location);
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 15,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 15,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.constList([C[86] || CT.C86], widget_inspector._Location);
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[85] || CT.C85,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 14,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 13,
+        [_Location_file]: null
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 14,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.constList([C[89] || CT.C89, C[90] || CT.C90], widget_inspector._Location);
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[88] || CT.C88,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 12,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/widgets/app_drawer.dart"
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C[93] = dart.constList([C[94] || CT.C94], widget_inspector._Location);
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[93] || CT.C93,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 22,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: text.Text.prototype,
+        [Widget__location]: C[92] || CT.C92,
+        [Widget_key]: null,
+        [Text_textHeightBehavior]: null,
+        [Text_textWidthBasis]: null,
+        [Text_semanticsLabel]: null,
+        [Text_maxLines]: null,
+        [Text_textScaleFactor]: null,
+        [Text_overflow]: null,
+        [Text_softWrap]: null,
+        [Text_locale]: null,
+        [Text_textDirection]: null,
+        [Text_textAlign]: null,
+        [Text_strutStyle]: null,
+        [Text_style]: null,
+        [Text_textSpan]: null,
+        [Text_data]: "Your Products"
+      });
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 38,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.constList([C[98] || CT.C98], widget_inspector._Location);
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[97] || CT.C97,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: false,
+        [IconData_fontPackage]: null,
+        [IconData_fontFamily]: "MaterialIcons",
+        [IconData_codePoint]: 57415
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: icon.Icon.prototype,
+        [Widget__location]: C[96] || CT.C96,
+        [Widget_key]: null,
+        [Icon_textDirection]: null,
+        [Icon_semanticLabel]: null,
+        [Icon_color]: null,
+        [Icon_size]: null,
+        [Icon_icon]: C[99] || CT.C99
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 15,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 15,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.constList([C[102] || CT.C102, C[103] || CT.C103], widget_inspector._Location);
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[101] || CT.C101,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 11,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C[105] = dart.constList([C[106] || CT.C106, C[107] || CT.C107], widget_inspector._Location);
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[105] || CT.C105,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.constList([C[112] || CT.C112], widget_inspector._Location);
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[111] || CT.C111,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "id",
+        [_Location_column]: 35,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 35,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "imageUrl",
+        [_Location_column]: 35,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C114() {
+      return C[114] = dart.constList([C[115] || CT.C115, C[116] || CT.C116, C[117] || CT.C117], widget_inspector._Location);
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[114] || CT.C114,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 31,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C120() {
+      return C[120] = dart.constList([C[121] || CT.C121], widget_inspector._Location);
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[120] || CT.C120,
+        [_Location_name]: null,
+        [_Location_column]: 58,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 29,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 29,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C[123] = dart.constList([C[124] || CT.C124, C[125] || CT.C125], widget_inspector._Location);
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[123] || CT.C123,
+        [_Location_name]: null,
+        [_Location_column]: 43,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 27,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C[127] = dart.constList([C[128] || CT.C128, C[129] || CT.C129], widget_inspector._Location);
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[127] || CT.C127,
+        [_Location_name]: null,
+        [_Location_column]: 63,
+        [_Location_line]: 44,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 25,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C[131] = dart.constList([C[132] || CT.C132], widget_inspector._Location);
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[131] || CT.C131,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onRefresh",
+        [_Location_column]: 23,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C134() {
+      return C[134] = dart.constList([C[135] || CT.C135, C[136] || CT.C136], widget_inspector._Location);
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[134] || CT.C134,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 11,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C138() {
+      return C[138] = dart.constList([C[139] || CT.C139, C[140] || CT.C140], widget_inspector._Location);
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[138] || CT.C138,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "drawer",
+        [_Location_column]: 9,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C142() {
+      return C[142] = dart.constList([C[143] || CT.C143, C[144] || CT.C144, C[145] || CT.C145], widget_inspector._Location);
+    },
+    get C141() {
+      return C[141] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[142] || CT.C142,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 20,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 20,
+        [_Location_file]: null
+      });
+    },
+    get C147() {
+      return C[147] = dart.constList([C[148] || CT.C148], widget_inspector._Location);
+    },
+    get C146() {
+      return C[146] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[147] || CT.C147,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 19,
+        [_Location_file]: "file:///D:/Prateek/shopping_app/lib/screens/user_products_screen.dart"
+      });
+    }
+  }, false);
+  var C = Array(149).fill(void 0);
+  var I = [
+    "package:shopping_app/screens/orders_screen.dart",
+    "package:shopping_app/widgets/app_drawer.dart",
+    "package:shopping_app/screens/user_products_screen.dart"
+  ];
+  orders_screen.OrdersScreen = class OrdersScreen extends framework.StatefulWidget {
+    createState() {
+      return new orders_screen._OrdersScreenState.new();
+    }
+  };
+  (orders_screen.OrdersScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    orders_screen.OrdersScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = orders_screen.OrdersScreen.prototype;
+  dart.addTypeTests(orders_screen.OrdersScreen);
+  dart.addTypeCaches(orders_screen.OrdersScreen);
+  dart.setMethodSignature(orders_screen.OrdersScreen, () => ({
+    __proto__: dart.getMethods(orders_screen.OrdersScreen.__proto__),
+    createState: dart.fnType(orders_screen._OrdersScreenState, [])
+  }));
+  dart.setLibraryUri(orders_screen.OrdersScreen, I[0]);
+  dart.defineLazy(orders_screen.OrdersScreen, {
+    /*orders_screen.OrdersScreen.routeName*/get routeName() {
+      return "/orders";
+    }
+  }, false);
+  var _isLoading = dart.privateName(orders_screen, "_isLoading");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  orders_screen._OrdersScreenState = class _OrdersScreenState extends framework.State$(orders_screen.OrdersScreen) {
+    initState() {
+      async.Future.delayed(core.Duration.zero).then(core.Null, dart.fn(value => async.async(core.Null, (function*() {
+        this.setState(dart.fn(() => {
+          this[_isLoading] = true;
+        }, T.VoidTovoid()));
+        yield provider.Provider.of(orders.Orders, this.context, {listen: false}).fetchAndSetOrders();
+        this.setState(dart.fn(() => {
+          this[_isLoading] = false;
+        }, T.VoidTovoid()));
+      }).bind(this)), T.dynamicToFutureOfNull()));
+      super.initState();
+    }
+    build(context) {
+      let orderData = provider.Provider.of(orders.Orders, context);
+      return new safe_area.SafeArea.new({child: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Your Order", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), drawer: new app_drawer.AppDrawer.new({$creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), body: this[_isLoading] ? new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}) : new scroll_view.ListView.builder({itemCount: orderData.orders[$length], itemBuilder: dart.fn((ctx, i) => new order_item.OrderItem.new(orderData.orders[$_get](i), {$creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), T.BuildContextAndintToOrderItem()), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), $creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24});
+    }
+  };
+  (orders_screen._OrdersScreenState.new = function() {
+    this[_isLoading] = false;
+    orders_screen._OrdersScreenState.__proto__.new.call(this);
+    ;
+  }).prototype = orders_screen._OrdersScreenState.prototype;
+  dart.addTypeTests(orders_screen._OrdersScreenState);
+  dart.addTypeCaches(orders_screen._OrdersScreenState);
+  dart.setMethodSignature(orders_screen._OrdersScreenState, () => ({
+    __proto__: dart.getMethods(orders_screen._OrdersScreenState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(orders_screen._OrdersScreenState, I[0]);
+  dart.setFieldSignature(orders_screen._OrdersScreenState, () => ({
+    __proto__: dart.getFields(orders_screen._OrdersScreenState.__proto__),
+    [_isLoading]: dart.fieldType(core.bool)
+  }));
+  app_drawer.AppDrawer = class AppDrawer extends framework.StatelessWidget {
+    build(context) {
+      return new container.Container.new({width: 220.0, child: new drawer.Drawer.new({child: new basic.Column.new({children: T.JSArrayOfWidget().of([new app_bar.AppBar.new({title: new text.Text.new("Hello Friend!", {$creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), automaticallyImplyLeading: false, $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.shop, {$creationLocationd_0dea112b090073317d4: C[34] || CT.C34}), title: new text.Text.new("Shop", {$creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), onTap: dart.fn(() => {
+                  navigator.Navigator.of(context).pushReplacementNamed(T.ObjectN(), T.ObjectN(), "/");
+                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.payment, {$creationLocationd_0dea112b090073317d4: C[46] || CT.C46}), title: new text.Text.new("Orders", {$creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), onTap: dart.fn(() => {
+                  navigator.Navigator.of(context).pushReplacementNamed(T.ObjectN(), T.ObjectN(), "/orders");
+                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[57] || CT.C57}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.edit, {$creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), title: new text.Text.new("Manage Products", {$creationLocationd_0dea112b090073317d4: C[61] || CT.C61}), onTap: dart.fn(() => {
+                  navigator.Navigator.of(context).pushReplacementNamed(T.ObjectN(), T.ObjectN(), "/user-products");
+                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[64] || CT.C64}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[69] || CT.C69}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.exit_to_app, {$creationLocationd_0dea112b090073317d4: C[70] || CT.C70}), title: new text.Text.new("Logout", {$creationLocationd_0dea112b090073317d4: C[73] || CT.C73}), onTap: dart.fn(() => {
+                  navigator.Navigator.of(context).pop(T.ObjectN());
+                  navigator.Navigator.of(context).pushReplacementNamed(T.ObjectN(), T.ObjectN(), "/");
+                  provider.Provider.of(auth.Auth, context, {listen: false}).logout();
+                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[76] || CT.C76})]), $creationLocationd_0dea112b090073317d4: C[81] || CT.C81}), $creationLocationd_0dea112b090073317d4: C[84] || CT.C84}), $creationLocationd_0dea112b090073317d4: C[87] || CT.C87});
+    }
+  };
+  (app_drawer.AppDrawer.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    app_drawer.AppDrawer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = app_drawer.AppDrawer.prototype;
+  dart.addTypeTests(app_drawer.AppDrawer);
+  dart.addTypeCaches(app_drawer.AppDrawer);
+  dart.setMethodSignature(app_drawer.AppDrawer, () => ({
+    __proto__: dart.getMethods(app_drawer.AppDrawer.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(app_drawer.AppDrawer, I[1]);
+  var _refreshProducts = dart.privateName(user_products_screen, "_refreshProducts");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var Text_textHeightBehavior = dart.privateName(text, "Text.textHeightBehavior");
+  var Text_textWidthBasis = dart.privateName(text, "Text.textWidthBasis");
+  var Text_semanticsLabel = dart.privateName(text, "Text.semanticsLabel");
+  var Text_maxLines = dart.privateName(text, "Text.maxLines");
+  var Text_textScaleFactor = dart.privateName(text, "Text.textScaleFactor");
+  var Text_overflow = dart.privateName(text, "Text.overflow");
+  var Text_softWrap = dart.privateName(text, "Text.softWrap");
+  var Text_locale = dart.privateName(text, "Text.locale");
+  var Text_textDirection = dart.privateName(text, "Text.textDirection");
+  var Text_textAlign = dart.privateName(text, "Text.textAlign");
+  var Text_strutStyle = dart.privateName(text, "Text.strutStyle");
+  var Text_style = dart.privateName(text, "Text.style");
+  var Text_textSpan = dart.privateName(text, "Text.textSpan");
+  var Text_data = dart.privateName(text, "Text.data");
+  var Icon_textDirection = dart.privateName(icon, "Icon.textDirection");
+  var Icon_semanticLabel = dart.privateName(icon, "Icon.semanticLabel");
+  var Icon_color = dart.privateName(icon, "Icon.color");
+  var Icon_size = dart.privateName(icon, "Icon.size");
+  var IconData_matchTextDirection = dart.privateName(icon_data, "IconData.matchTextDirection");
+  var IconData_fontPackage = dart.privateName(icon_data, "IconData.fontPackage");
+  var IconData_fontFamily = dart.privateName(icon_data, "IconData.fontFamily");
+  var IconData_codePoint = dart.privateName(icon_data, "IconData.codePoint");
+  var Icon_icon = dart.privateName(icon, "Icon.icon");
+  user_products_screen.UserProductsScreen = class UserProductsScreen extends framework.StatelessWidget {
+    [_refreshProducts](context) {
+      return async.async(dart.void, function* _refreshProducts() {
+        yield provider.Provider.of(products.Products, context, {listen: false}).fetchAndSetProducts(true);
+      });
+    }
+    build(context) {
+      core.print("rebuilding...");
+      return new safe_area.SafeArea.new({child: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: C[91] || CT.C91, actions: T.JSArrayOfWidget().of([new icon_button.IconButton.new({onPressed: dart.fn(() => {
+                  navigator.Navigator.of(context).pushNamed(T.ObjectN(), "/edit-product", {arguments: ""});
+                }, T.VoidTovoid()), icon: C[95] || CT.C95, $creationLocationd_0dea112b090073317d4: C[100] || CT.C100})]), $creationLocationd_0dea112b090073317d4: C[104] || CT.C104}), drawer: new app_drawer.AppDrawer.new({$creationLocationd_0dea112b090073317d4: C[108] || CT.C108}), body: new (T.FutureBuilderOfvoid()).new({future: this[_refreshProducts](context), builder: dart.fn((ctx, snapshot) => snapshot.connectionState === async$.ConnectionState.waiting ? new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[109] || CT.C109}), $creationLocationd_0dea112b090073317d4: C[110] || CT.C110}) : new refresh_indicator.RefreshIndicator.new({onRefresh: dart.fn(() => this[_refreshProducts](context), T.VoidToFutureOfvoid()), child: new (T.ConsumerOfProducts()).new({builder: dart.fn((ctx, productData, child) => new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new scroll_view.ListView.builder({itemBuilder: dart.fn((context, i) => new basic.Column.new({children: T.JSArrayOfWidget().of([new user_product_item.UserProductItem.new({id: productData.items[$_get](i).id, title: productData.items[$_get](i).title, imageUrl: productData.items[$_get](i).imageUrl, $creationLocationd_0dea112b090073317d4: C[113] || CT.C113}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[118] || CT.C118})]), $creationLocationd_0dea112b090073317d4: C[119] || CT.C119}), T.BuildContextAndintToColumn()), itemCount: productData.items[$length], $creationLocationd_0dea112b090073317d4: C[122] || CT.C122}), $creationLocationd_0dea112b090073317d4: C[126] || CT.C126}), T.BuildContextAndProductsAndWidgetNToPadding()), $creationLocationd_0dea112b090073317d4: C[130] || CT.C130}), $creationLocationd_0dea112b090073317d4: C[133] || CT.C133}), T.BuildContextAndAsyncSnapshotOfObjectNToWidget()), $creationLocationd_0dea112b090073317d4: C[137] || CT.C137}), $creationLocationd_0dea112b090073317d4: C[141] || CT.C141}), $creationLocationd_0dea112b090073317d4: C[146] || CT.C146});
+    }
+  };
+  (user_products_screen.UserProductsScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    user_products_screen.UserProductsScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = user_products_screen.UserProductsScreen.prototype;
+  dart.addTypeTests(user_products_screen.UserProductsScreen);
+  dart.addTypeCaches(user_products_screen.UserProductsScreen);
+  dart.setMethodSignature(user_products_screen.UserProductsScreen, () => ({
+    __proto__: dart.getMethods(user_products_screen.UserProductsScreen.__proto__),
+    [_refreshProducts]: dart.fnType(async.Future$(dart.void), [framework.BuildContext]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(user_products_screen.UserProductsScreen, I[2]);
+  dart.defineLazy(user_products_screen.UserProductsScreen, {
+    /*user_products_screen.UserProductsScreen.routeName*/get routeName() {
+      return "/user-products";
+    }
+  }, false);
+  dart.trackLibraries("packages/shopping_app/screens/orders_screen.dart", {
+    "package:shopping_app/screens/orders_screen.dart": orders_screen,
+    "package:shopping_app/widgets/app_drawer.dart": app_drawer,
+    "package:shopping_app/screens/user_products_screen.dart": user_products_screen
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["orders_screen.dart","../widgets/app_drawer.dart","user_products_screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAUsC;IAAoB;;;;;;EAC1D;;;;;;;;;MAJe,oCAAS;;;;;;;;;;;;AAkBlB,MARK,AAAuB,qBAAN,oCAAW,QAAC;AAGhC,QAFF,cAAS;AACU,UAAjB,mBAAa;;AAEsD,QAArE,MAAe,AAAmC,oCAAxB,uBAAiB;AAGzC,QAFF,cAAS;AACW,UAAlB,mBAAa;;MAEhB;AACgB,MAAX;IACR;UAG0B;AAClB,sBAAqB,oCAAW,OAAO;AAC7C,YAAO,oCACE,mCACG,+BACC,kBAAK,yIAEN,6FACF,mBACA,6BACS,yKAEA,6CACI,AAAU,AAAO,SAAR,+BACP,SAAC,KAAK,MAAM,6BAAU,AAAU,AAAM,SAAP,eAAQ,CAAC;IAInE;;;IAlCI,mBAAa;;;EAmCnB;;;;;;;;;;;;;UCvC4B;AACxB,YAAO,qCACE,cACA,8BACI,gCACC,wBACR,+BACS,kBAAK,wGACe,kEAE7B,qCACW,kBAAW,qFACb,kBAAK,2EACL;AAC0C,kBAArC,AAAY,uBAAT,OAAO,iDAAuB;+FAG/C,oFACA,qCACW,kBAAW,wFACb,kBAAK,6EACL;AAE4C,kBADvC,AACL,uBADQ,OAAO;+FAIxB,oFACA,qCACW,kBAAW,qFACb,kBAAK,sFACL;AAEkD,kBAD7C,AACL,uBADQ,OAAO;+FAIxB,oFACA,qCACW,kBAAW,4FACb,kBAAK,6EACL;AACsB,kBAAjB,AAAY,uBAAT,OAAO;AAC2B,kBAArC,AAAY,uBAAT,OAAO,iDAAuB;AACO,kBAAzC,AAAiC,gCAAxB,OAAO,WAAU;;IAM/C;;;QAnDsB;;AAAQ,wDAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;uBCEF;AAAd;AAEG,QAD9B,MAAe,AACV,wCADuB,OAAO,WAAU,4BACpB;MAC3B;;UAG0B;AAEF,MAAtB,WAAM;AACN,YAAO,oCACE,mCACG,yDAEG,wBACP,2CACa;AAEiD,kBADhD,AACL,uBADQ,OAAO,sDACmC;+LAMvD,iGACF,2CACI,uBAAiB,OAAO,YACvB,SAAC,KAAK,aACX,AAAS,AAAgB,QAAjB,qBAAoC,iCACtC,6BACS,iLAET,uDACa,cAAM,uBAAiB,OAAO,mCAClC,2CACI,SAAC,KAAK,aAAa,UAAU,gCAChB,+BAAI,aACR,+CACD,SAAC,SAAS,MAAM,gCACjB,wBACR,+CACM,AAAY,AAAK,AAAI,WAAV,cAAO,CAAC,aAChB,AAAY,AAAK,AAAI,WAAV,cAAO,CAAC,mBAChB,AAAY,AAAK,AAAI,WAAV,cAAO,CAAC,yEAE/B,iMAGO,AAAY,AAAM,WAAP;IAQhD;;;;;;EACF;;;;;;;;;;MAzDe,iDAAS","file":"../../../../packages/shopping_app/screens/orders_screen.dart.lib.js"}');
+  // Exports:
+  return {
+    screens__orders_screen: orders_screen,
+    widgets__app_drawer: app_drawer,
+    screens__user_products_screen: user_products_screen
+  };
+}));
+
+//# sourceMappingURL=orders_screen.dart.lib.js.map

@@ -1,0 +1,4 @@
+#Thu Nov 11 09:49:23 IST 2021
+base.0=D\:\\Prateek\\shopping_app\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
