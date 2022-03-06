@@ -36,7 +36,8 @@ class Orders with ChangeNotifier {
 
   Future<void> fetchAndSetOrders() async {
     final url =
-        
+        'https://flutter-update-9636c-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
+
     final response = await http.get(Uri.parse(url));
     print(json.decode(response.body));
     final List<OrderItem> loadedOrders = [];
@@ -71,7 +72,8 @@ class Orders with ChangeNotifier {
 
   Future<void> addOrder(List<CartItem> cartProducts, double total) async {
     final url =
-        
+        'https://flutter-update-9636c-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
+
     final timeStamp = DateTime.now();
     final response = await http.post(
       Uri.parse(url),

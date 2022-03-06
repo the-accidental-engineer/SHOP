@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
           title: 'MyShop',
           theme: ThemeData(
             primarySwatch: Colors.teal,
+            // ignore: deprecated_member_use
             accentColor: Colors.deepOrange,
             fontFamily: 'Lato',
           ),

@@ -65,6 +65,7 @@ class AuthScreen extends StatelessWidget {
                           'MyShop',
                           style: TextStyle(
                             color: Theme.of(context)
+                                // ignore: deprecated_member_use
                                 .accentTextTheme
                                 .headline6!
                                 .color,

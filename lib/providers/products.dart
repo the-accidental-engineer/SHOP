@@ -135,7 +135,8 @@ class Products with ChangeNotifier {
     final filterString =
         filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
     var url =
-        
+        'https://flutter-update-9636c-default-rtdb.firebaseio.com/products.json?auth=$authToken&$filterString';
+
     try {
       final response = await http.get(Uri.parse(url));
       // print(json.decode(response.body));

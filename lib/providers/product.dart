@@ -26,7 +26,8 @@ class Product with ChangeNotifier {
     isFavorite = !isFavorite;
     notifyListeners();
     final url =
-        
+        'https://flutter-update-9636c-default-rtdb.firebaseio.com/userFavorites/$userId/$id.json?auth=$token';
+
     try {
       final response = await http.put(
         Uri.parse(url),

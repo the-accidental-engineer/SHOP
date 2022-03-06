@@ -40,18 +40,22 @@ class _OrderItemState extends State<OrderItem> {
           if (_expanded)
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              height: min(widget.order.products.length * 20 + 10, 200),
+              height: min(widget.order.products.length * 50 + 10, 200),
               child: ListView(
                 children: widget.order.products
                     .map(
                       (prod) => Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            prod.title,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            child: Text(
+                              prod.title,
+                              style: TextStyle(
+                                fontSize: 18,
+                                overflow: TextOverflow.ellipsis,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Text(
