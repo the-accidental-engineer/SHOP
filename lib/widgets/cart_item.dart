@@ -8,7 +8,6 @@ class CartItem extends StatelessWidget {
   final double price;
   final int quantity;
   final String title;
-
   final String productId;
 
   const CartItem({
@@ -26,16 +25,10 @@ class CartItem extends StatelessWidget {
       key: ValueKey(id),
       background: Container(
         color: Theme.of(context).errorColor,
-        child: Icon(
-          Icons.delete,
-          color: Colors.white,
-        ),
+        child: Icon(Icons.delete, color: Colors.white),
         alignment: Alignment.centerRight,
         padding: EdgeInsets.only(right: 20),
-        margin: EdgeInsets.symmetric(
-          vertical: 4,
-          horizontal: 15,
-        ),
+        margin: EdgeInsets.symmetric(vertical: 4, horizontal: 15),
       ),
       direction: DismissDirection.endToStart,
       confirmDismiss: (direction) {

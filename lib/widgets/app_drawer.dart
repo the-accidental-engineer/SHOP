@@ -10,17 +10,17 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220,
+      width: MediaQuery.of(context).size.width * 0.65,
       child: Drawer(
           child: Column(
         children: [
           AppBar(
-            title: Text('Hello Friend!'),
+            title: const Text('Hello Friend!'),
             automaticallyImplyLeading: false,
           ),
           ListTile(
             leading: Icon(Icons.shop),
-            title: Text('Shop'),
+            title: const Text('Shop'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/');
             },
@@ -28,7 +28,7 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.payment),
-            title: Text('Orders'),
+            title: const Text('My Orders'),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(OrdersScreen.routeName);
@@ -37,7 +37,7 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.edit),
-            title: Text('Manage Products'),
+            title: const Text('Manage Products'),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(UserProductsScreen.routeName);
@@ -46,7 +46,7 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
+            title: const Text('Logout'),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).pushReplacementNamed('/');

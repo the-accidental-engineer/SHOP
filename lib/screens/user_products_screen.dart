@@ -15,7 +15,7 @@ class UserProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final productData = Provider.of<Products>(context);
-    print('rebuilding...');
+    // print('rebuilding...');
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

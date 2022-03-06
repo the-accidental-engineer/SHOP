@@ -39,7 +39,7 @@ class Orders with ChangeNotifier {
         'https://flutter-update-9636c-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
 
     final response = await http.get(Uri.parse(url));
-    print(json.decode(response.body));
+    // print(json.decode(response.body));
     final List<OrderItem> loadedOrders = [];
     final extractedData = json.decode(response.body) as Map<String, dynamic>?;
     if (extractedData == null) {
